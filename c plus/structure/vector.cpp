@@ -49,6 +49,8 @@ public:
     int unique();
     Rank binSearch(T* A,T const& e,Rank lo,Rank hi);
     Rank search(T const& e,Rank lo,Rank hi);
+    Rank push_back(const T& e);
+    T pop_back();
 };
 
 template <typename T>
@@ -160,7 +162,6 @@ int MyVector<T>::unique(){
 template <typename T>
 Rank MyVector<T>::binSearch(T* A, T const& e, Rank lo, Rank hi){
     while(lo<hi){
-        
         Rank mi = (lo+hi) >> 1;
         cout << e << "," << A[mi] << endl;
         if(e<A[mi]){
@@ -177,4 +178,19 @@ Rank MyVector<T>::binSearch(T* A, T const& e, Rank lo, Rank hi){
 template <typename T>
 Rank MyVector<T>::search(T const &e, Rank lo, Rank hi){
     return binSearch(_elem, e, lo, hi);
+}
+
+
+template <typename T>
+Rank MyVector<T>::push_back(T const& e){
+    expand();
+    Rank r = _size;
+    _elem[_size++]=e;
+    return r;
+}
+
+template <typename T>
+T MyVector<T>::pop_back(){
+    T ret=_elem[--_size];
+    return ret;
 }
