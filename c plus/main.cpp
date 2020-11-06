@@ -7,23 +7,20 @@
 
 #include <iostream>
 #include "util/util.cpp"
-#include "structure/vector.cpp"
+#include "structure/List.cpp"
+
 
 using namespace std;
 
 int main(){
-    MyVector<int> v;
-    v.insert(0, 9);
-    v.insert(0, 8);
-    v.insert(0, 7);
-    v.insert(0, 6);
-    v.insert(0, 5);
-    v.insert(0, 4);
-    v.insert(0, 3);
-    v.insert(0, 2);
-    v.insert(0, 1);
-    v.insert(0, 0);
+    List<int> l;
+ 
+    l.insertAsFirst(1);
+    l.insertAsFirst(0);
+    l.insertAsLast(2);
+    l.insertAsLast(3);
     
-//    v.log();
+    l.remove(l.first());
+    l.log();
     return 0;
 }
