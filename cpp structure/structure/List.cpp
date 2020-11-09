@@ -15,7 +15,7 @@ private:
 protected:
     void init();
     int clear();
-    
+    void copyNodes(ListNodePosi(T) p,int n);
 public:
     // 构造函数
     List(){init();};
@@ -33,6 +33,10 @@ public:
     ListNodePosi(T) find(T const& e)const
     {return find(e,_size,tail);};
     ListNodePosi(T) find(T const& e,int n,ListNodePosi(T) p)const;
+    void sort(ListNodePosi(T),int);
+    void sort(){sort(head,_size);};
+    void selectionSort(ListNodePosi(T),int);
+    void selectMax(ListNodePosi(T),int);
     void log();
     
     // 可写接口
@@ -108,3 +112,27 @@ ListNodePosi(T) List<T>::find(T const& e,int n,ListNodePosi(T) p)const{
     }
     return NULL;
 }
+
+template <typename T>
+void List<T>::copyNodes(ListNode<T> *p, int n){
+    init();
+    while (n--) {
+        insertAsLast(p->data);p=p->succ;
+    }
+}
+
+template <typename T>
+void List<T>::sort(ListNodePosi(T) p, int n){
+    
+}
+
+template <typename T>
+void List<T>::selectionSort(ListNodePosi(T) p, int n){
+    
+}
+    
+template <typename T>
+void List<T>::selectMax(ListNodePosi(T) p, int n){
+    
+}
+
